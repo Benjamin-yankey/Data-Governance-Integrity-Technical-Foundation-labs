@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1400" height="1800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .component { fill: #4A90E2; stroke: #2E5C8A; stroke-width: 2; }
+      .correction { fill: #50C878; stroke: #2D7A4A; stroke-width: 2; }
+      .database { fill: #F5A623; stroke: #C17D11; stroke-width: 2; }
+      .decision { fill: #E74C3C; stroke: #A93226; stroke-width: 2; }
+      .partner { fill: #9B59B6; stroke: #6C3483; stroke-width: 2; }
+      .text-white { fill: white; font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; }
+      .text-black { fill: #333; font-family: Arial, sans-serif; font-size: 13px; }
+      .text-small { fill: #333; font-family: Arial, sans-serif; font-size: 11px; }
+      .annotation { fill: #FFF3CD; stroke: #FFC107; stroke-width: 1.5; }
+      .annotation-text { fill: #856404; font-family: Arial, sans-serif; font-size: 11px; }
+      .arrow { stroke: #333; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-correction { stroke: #50C878; stroke-width: 3; fill: none; marker-end: url(#arrowhead-green); stroke-dasharray: 5,5; }
+      .title { fill: #2C3E50; font-family: Arial, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #34495E; font-family: Arial, sans-serif; font-size: 16px; }
+      .layer-label { fill: #7F8C8D; font-family: Arial, sans-serif; font-size: 12px; font-style: italic; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333" />
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#50C878" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="700" y="35" text-anchor="middle" class="title">QuickLoan Mobile: Corrected Data Flow Diagram</text>
+  <text x="700" y="60" text-anchor="middle" class="subtitle">With Governance Controls &amp; Ethical Safeguards</text>
+
+  <!-- Layer Labels -->
+  <text x="50" y="120" class="layer-label">LAYER 1: COLLECTION</text>
+  <text x="50" y="370" class="layer-label">LAYER 2: STORAGE</text>
+  <text x="50" y="670" class="layer-label">LAYER 3: PROCESSING</text>
+  <text x="50" y="1070" class="layer-label">LAYER 4: DECISION</text>
+  <text x="50" y="1470" class="layer-label">LAYER 5: SHARING</text>
+
+  <!-- STEP 1: User Mobile App (with Correction 1) -->
+  <rect x="550" y="140" width="300" height="80" rx="5" class="component"/>
+  <text x="700" y="170" text-anchor="middle" class="text-white">STEP 1: User Mobile App</text>
+  <text x="700" y="190" text-anchor="middle" class="text-white" font-size="12">✓ DATA MINIMIZATION</text>
+  <text x="700" y="208" text-anchor="middle" class="text-white" font-size="11">(2-3 contacts only, district-level location)</text>
+  
+  <!-- Annotation 1 -->
+  <rect x="900" y="145" width="420" height="70" rx="3" class="annotation"/>
+  <text x="910" y="163" class="annotation-text" font-weight="bold">Correction 1: Data Minimization</text>
+  <text x="910" y="178" class="annotation-text">• Collect ONLY essential data for loan decision</text>
+  <text x="910" y="193" class="annotation-text">• Remove: entire contact list, precise GPS, device metadata</text>
+  <text x="910" y="208" class="annotation-text">• Complies with Ghana DPA Section 25 (minimization)</text>
+
+  <!-- Arrow down -->
+  <line x1="700" y1="220" x2="700" y2="270" class="arrow"/>
+
+  <!-- STEP 2: API Gateway -->
+  <rect x="550" y="270" width="300" height="60" rx="5" class="component"/>
+  <text x="700" y="295" text-anchor="middle" class="text-white">STEP 2: API Gateway</text>
+  <text x="700" y="315" text-anchor="middle" class="text-white" font-size="12">(Request validation &amp; routing)</text>
+
+  <!-- Arrow down -->
+  <line x1="700" y1="330" x2="700" y2="390" class="arrow"/>
+
+  <!-- CORRECTION: Consent Management Service (NEW) -->
+  <rect x="520" y="390" width="360" height="80" rx="5" class="correction"/>
+  <text x="700" y="415" text-anchor="middle" class="text-white">★ CONSENT MANAGEMENT SERVICE ★</text>
+  <text x="700" y="435" text-anchor="middle" class="text-white" font-size="12">Explicit opt-in capture + Privacy Notice</text>
+  <text x="700" y="452" text-anchor="middle" class="text-white" font-size="11">Records timestamp, scope, version | Consent Registry DB</text>
+
+  <!-- Annotation 2 -->
+  <rect x="50" y="395" width="420" height="70" rx="3" class="annotation"/>
+  <text x="60" y="413" class="annotation-text" font-weight="bold">Correction 2: Explicit Consent Capture</text>
+  <text x="60" y="428" class="annotation-text">• Obtain granular consent before data storage</text>
+  <text x="60" y="443" class="annotation-text">• Complies with Ghana DPA Section 19 (consent requirement)</text>
+  <text x="60" y="458" class="annotation-text">• Enable easy withdrawal + audit trail</text>
+
+  <!-- Arrow down -->
+  <line x1="700" y1="470" x2="700" y2="520" class="arrow"/>
+
+  <!-- STEP 3: Raw Data DB (with Correction 3) -->
+  <ellipse cx="700" cy="560" rx="180" ry="50" class="database"/>
+  <text x="700" y="555" text-anchor="middle" class="text-white">STEP 3: Raw Data DB</text>
+  <text x="700" y="572" text-anchor="middle" class="text-white" font-size="11">✓ Classification + Retention + Encryption</text>
+
+  <!-- Annotation 3 -->
+  <rect x="900" y="520" width="420" height="85" rx="3" class="annotation"/>
+  <text x="910" y="538" class="annotation-text" font-weight="bold">Correction 3: Classification &amp; Retention Policy</text>
+  <text x="910" y="553" class="annotation-text">• Tag fields: Public/Internal/Confidential/SENSITIVE</text>
+  <text x="910" y="568" class="annotation-text">• Ghana Card + financials = SENSITIVE (AES-256 encrypted)</text>
+  <text x="910" y="583" class="annotation-text">• Retention: 7 yrs closed loans → deletion; 1 yr rejected apps</text>
+  <text x="910" y="598" class="annotation-text">• Automated deletion jobs (monthly)</text>
+
+  <!-- Arrow down -->
+  <line x1="700" y1="610" x2="700" y2="670" class="arrow"/>
+
+  <!-- STEP 4: Preprocessing Service (with Correction 4) -->
+  <rect x="520" y="670" width="360" height="90" rx="5" class="correction"/>
+  <text x="700" y="695" text-anchor="middle" class="text-white">STEP 4: Preprocessing Service</text>
+  <text x="700" y="715" text-anchor="middle" class="text-white" font-size="12">✓ DATA QUALITY VALIDATION</text>
+  <text x="700" y="732" text-anchor="middle" class="text-white" font-size="11">Standardize | Validate | Deduplicate</text>
+  <text x="700" y="748" text-anchor="middle" class="text-white" font-size="11">Phone E.164, Ghana Card format, Address parsing</text>
+
+  <!-- Annotation 4 -->
+  <rect x="50" y="685" width="420" height="70" rx="3" class="annotation"/>
+  <text x="60" y="703" class="annotation-text" font-weight="bold">Correction 4: Data Quality Validation</text>
+  <text x="60" y="718" class="annotation-text">• Standardize phone (+233), validate Ghana Card (15-digit)</text>
+  <text x="60" y="733" class="annotation-text">• Deduplication with fuzzy matching</text>
+  <text x="60" y="748" class="annotation-text">• Improves ML accuracy &amp; prevents duplicate records</text>
+
+  <!-- Arrow down -->
+  <line x1="700" y1="760" x2="700" y2="810" class="arrow"/>
+
+  <!-- STEP 5: ML Scoring Model -->
+  <rect x="550" y="810" width="300" height="80" rx="5" class="component"/>
+  <text x="700" y="835" text-anchor="middle" class="text-white">STEP 5: ML Scoring Model</text>
+  <text x="700" y="855" text-anchor="middle" class="text-white" font-size="12">✓ FAIRNESS CONSTRAINTS</text>
+  <text x="700" y="873" text-anchor="middle" class="text-white" font-size="11">Monitoring: Demographic Approval Rate Disparity</text>
+
+  <!-- Bias monitoring box -->
+  <rect x="900" y="815" width="420" height="70" rx="3" class="annotation"/>
+  <text x="910" y="833" class="annotation-text" font-weight="bold">Correction (Part of 3): Bias &amp; Fairness Monitoring</text>
+  <text x="910" y="848" class="annotation-text">• Remove/reduce proxy features (contact list size, device price)</text>
+  <text x="910" y="863" class="annotation-text">• Fairness constraints: approval rates within 10% across groups</text>
+  <text x="910" y="878" class="annotation-text">• Weekly DARD metric tracking by gender/region/age</text>
+
+  <!-- Arrow down -->
+  <line x1="700" y1="890" x2="700" y2="940" class="arrow"/>
+
+  <!-- STEP 6: Scoring Result DB -->
+  <ellipse cx="700" cy="980" rx="160" ry="40" class="database"/>
+  <text x="700" y="985" text-anchor="middle" class="text-white">STEP 6: Scoring Result DB</text>
+
+  <!-- Arrow down -->
+  <line x1="700" y1="1020" x2="700" y2="1070" class="arrow"/>
+
+  <!-- STEP 7: Decision Service (with Correction 5) -->
+  <rect x="520" y="1070" width="360" height="100" rx="5" class="decision"/>
+  <text x="700" y="1095" text-anchor="middle" class="text-white">STEP 7: Decision Service</text>
+  <text x="700" y="1115" text-anchor="middle" class="text-white" font-size="12">✓ TRANSPARENCY &amp; LOGGING</text>
+  <text x="700" y="1132" text-anchor="middle" class="text-white" font-size="11">Decision Audit Log + Explainability</text>
+  <text x="700" y="1149" text-anchor="middle" class="text-white" font-size="11">Plain-language explanations + Appeal mechanism</text>
+  <text x="700" y="1163" text-anchor="middle" class="text-white" font-size="10">Human review for marginal cases (within 5% of threshold)</text>
+
+  <!-- Annotation 5 -->
+  <rect x="50" y="1080" width="420" height="85" rx="3" class="annotation"/>
+  <text x="60" y="1098" class="annotation-text" font-weight="bold">Correction 5: Decision Logging &amp; Transparency</text>
+  <text x="60" y="1113" class="annotation-text">• Log: user ID, timestamp, score, decision, top 5 features</text>
+  <text x="60" y="1128" class="annotation-text">• Send explanation to user: "Approved/rejected based on..."</text>
+  <text x="60" y="1143" class="annotation-text">• Store logs 3 years for regulatory audit</text>
+  <text x="60" y="1158" class="annotation-text">• Ensure accountability in automated decisions</text>
+
+  <!-- Arrow down -->
+  <line x1="700" y1="1170" x2="700" y2="1220" class="arrow"/>
+
+  <!-- STEP 8: Notification Service -->
+  <rect x="550" y="1220" width="300" height="60" rx="5" class="component"/>
+  <text x="700" y="1245" text-anchor="middle" class="text-white">STEP 8: Notification Service</text>
+  <text x="700" y="1265" text-anchor="middle" class="text-white" font-size="12">(Send decision to user)</text>
+
+  <!-- Branch to Analytics DB -->
+  <line x1="700" y1="1090" x2="400" y2="1090" class="arrow"/>
+  <line x1="400" y1="1090" x2="400" y2="1390" class="arrow"/>
+
+  <!-- STEP 9: Analytics DB (with Correction 6) -->
+  <ellipse cx="400" cy="1430" rx="180" ry="50" class="database"/>
+  <text x="400" y="1425" text-anchor="middle" class="text-white">STEP 9: Analytics DB</text>
+  <text x="400" y="1442" text-anchor="middle" class="text-white" font-size="11">✓ PSEUDONYMIZED DATA ONLY</text>
+
+  <!-- Annotation 6a -->
+  <rect x="50" y="1395" width="300" height="70" rx="3" class="annotation"/>
+  <text x="60" y="1413" class="annotation-text" font-weight="bold">Correction 6a: Data Masking</text>
+  <text x="60" y="1428" class="annotation-text">• Hash user IDs</text>
+  <text x="60" y="1443" class="annotation-text">• Mask Ghana Card (last 4 digits)</text>
+  <text x="60" y="1458" class="annotation-text">• Generalize location to district</text>
+
+  <!-- Arrow to 3rd Party -->
+  <line x1="400" y1="1480" x2="400" y2="1580" class="arrow"/>
+
+  <!-- STEP 10: 3rd-Party Analytics Partner (with Correction 6) -->
+  <rect x="250" y="1580" width="300" height="80" rx="5" class="partner"/>
+  <text x="400" y="1605" text-anchor="middle" class="text-white">STEP 10: 3rd-Party Partner</text>
+  <text x="400" y="1625" text-anchor="middle" class="text-white" font-size="12">✓ ANONYMIZED DATA (k≥5)</text>
+  <text x="400" y="1643" text-anchor="middle" class="text-white" font-size="11">Data Sharing Agreement + Purpose Limitation</text>
+
+  <!-- Annotation 6b -->
+  <rect x="600" y="1590" width="420" height="70" rx="3" class="annotation"/>
+  <text x="610" y="1608" class="annotation-text" font-weight="bold">Correction 6b: Third-Party Anonymization</text>
+  <text x="610" y="1623" class="annotation-text">• K-anonymity (k≥5) before sharing</text>
+  <text x="610" y="1638" class="annotation-text">• Data sharing agreement with DPA compliance obligations</text>
+  <text x="610" y="1653" class="annotation-text">• Role-based access: analytics team cannot access Raw DB</text>
+
+  <!-- Main flow back to user -->
+  <line x1="700" y1="1280" x2="700" y2="1330" class="arrow"/>
+  <rect x="550" y="1330" width="300" height="60" rx="5" class="component"/>
+  <text x="700" y="1355" text-anchor="middle" class="text-white">Back to User Mobile App</text>
+  <text x="700" y="1375" text-anchor="middle" class="text-white" font-size="12">(Loan disbursement or explanation)</text>
+
+  <!-- Legend -->
+  <g transform="translate(50, 1700)">
+    <text x="0" y="0" class="subtitle">Legend:</text>
+    <rect x="0" y="10" width="40" height="25" rx="3" class="component"/>
+    <text x="50" y="28" class="text-small">Original Component</text>
+    
+    <rect x="200" y="10" width="40" height="25" rx="3" class="correction"/>
+    <text x="250" y="28" class="text-small">New/Enhanced Component</text>
+    
+    <rect x="450" y="10" width="40" height="25" rx="3" class="database"/>
+    <text x="500" y="28" class="text-small">Database</text>
+    
+    <rect x="650" y="10" width="40" height="25" rx="3" class="decision"/>
+    <text x="700" y="28" class="text-small">Decision Engine</text>
+    
+    <rect x="900" y="10" width="40" height="25" rx="3" class="partner"/>
+    <text x="950" y="28" class="text-small">External Partner</text>
+
+    <rect x="0" y="50" width="60" height="25" rx="3" class="annotation"/>
+    <text x="70" y="68" class="text-small">Governance Annotation</text>
+  </g>
+
+</svg>
